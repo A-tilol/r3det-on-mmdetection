@@ -126,10 +126,12 @@ def main():
         model.CLASSES = dataset.CLASSES
 
     if not distributed:
+        print("log 1")
         model = MMDataParallel(model, device_ids=[0])
         outputs = single_gpu_test(model, data_loader, args.show, args.show_dir,
                                   args.show_score_thr)
     else:
+        print("log 2")
         model = MMDistributedDataParallel(
             model.cuda(),
             device_ids=[torch.cuda.current_device()],
