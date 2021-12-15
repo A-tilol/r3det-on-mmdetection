@@ -128,6 +128,7 @@ def main():
     if not distributed:
         print("log 1")
         model = MMDataParallel(model, device_ids=[0])
+        print("data_loader.dataset", len(data_loader.dataset))
         outputs = single_gpu_test(model, data_loader, args.show, args.show_dir,
                                   args.show_score_thr)
     else:
