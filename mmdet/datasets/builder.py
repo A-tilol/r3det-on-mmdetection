@@ -49,6 +49,7 @@ def _concat_dataset(cfg, default_args=None):
 def build_dataset(cfg, default_args=None):
     from .dataset_wrappers import (ConcatDataset, RepeatDataset,
                                    ClassBalancedDataset)
+    print("dataset 0")
     if isinstance(cfg, (list, tuple)):
         print("dataset 1")
         dataset = ConcatDataset([build_dataset(c, default_args) for c in cfg])
